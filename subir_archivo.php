@@ -16,11 +16,11 @@
 		$url_foto_empleado=$_POST['url_foto_empleado'];
 		//Parte 2.
 		//Variabñe que extraiga la extensión del archivo
-//		$imageFileType = pathinfo($url_foto_empleado, PATHINFO_EXTENSION);
+	$imageFileType = pathinfo($url_foto_empleado, PATHINFO_EXTENSION);
 
 		//Variable que valida que el archivo sea de tipo imagen
 	//	$check =getimagesize($url_foto_empleado);
-	//	if ($imageFileType=="png" || $imageFileType=="PNG") {
+		if ($imageFileType=="png" || $imageFileType=="PNG") {
 
 
 			$query = "INSERT INTO empleados (id_empleado,nombre_empleado, salario_empleado,url_foto_empleado) values
@@ -33,4 +33,8 @@
 			}else {
 				echo "Query no ejecutando </br>";
 			}
+		}else {
+			echo "No es PNG";
+		}
+	}
 ?>
